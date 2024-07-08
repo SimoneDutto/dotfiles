@@ -1,31 +1,19 @@
-export http_proxy=http://127.0.0.1:3128
-export HTTP_PROXY=$http_proxy
-export https_proxy=http://127.0.0.1:3128
-export HTTPS_PROXY=$https_proxy
-export ftp_proxy=http://127.0.0.1:3128
-
-# Path to your oh-my-zsh installation.
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-source "$HOME/.env"
 
 ZSH_THEME="robbyrussell"
+
+ENABLE_CORRECTION="true"
 
 plugins=(
 	git
         zsh-autosuggestions
         zsh-syntax-highlighting        
-	npm
 )
-
 source $ZSH/oh-my-zsh.sh
-alias snx="/home/simonedutto/snx_wrapper.sh"
-alias vpn="/home/simonedutto/cpyvpn/cpy_client_wrapper.sh"
-alias tmux="tmux -2"
-alias coddami="shutdown -h"
-source /home/simonedutto/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export AWS_PROFILE=AWSAdministratorAccess-969866973683
+
+alias zshconfig="vim ~/.zshrc"
 function zle-clipboard-cut {
   if ((REGION_ACTIVE)); then
     zle copy-region-as-kill
@@ -89,10 +77,10 @@ for key     kcap    seq           widget              arg (
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
 export HISTFILE=~/.zsh_history
-export PATH=$PATH:$(go env GOPATH)/bin
-export PATH=$PATH:/usr/local/go/bin
 setopt HIST_FIND_NO_DUPS
 setopt INC_APPEND_HISTORY
 PROMPT='%{$fg[yellow]%}[%D{%L:%M:%S}] '$PROMPT
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#export PATH=$PATH:$(go env GOPATH)/bin
+#export PATH=$PATH:/usr/local/go/bin
